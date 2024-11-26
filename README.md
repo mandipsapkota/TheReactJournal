@@ -158,11 +158,23 @@ cd app-name
 npm install
 ```
 
+### 6. Run the app
+```bash
+npm run dev
+```
+
+This is how the app will look :
+![alt text](image-7.png)
+
+---
+---
+
+
 # Understanding Folder Structure
 
 In both vite and cra we can see similar structure but there is a difference too.
 
-## Vite
+## Vite folder Structure
 
 In vite we can see this kind of structure .
 
@@ -170,5 +182,107 @@ In vite we can see this kind of structure .
 
 Lets understand each 1 by 1.
 
+### 1. node_modules
+It has all the require code to run react . Instead of using from cdn its now stored in our device . Dont get scared when we open the folder . It contains all modules used by react.
 
-## CRA
+![alt text](image-6.png)
+
+### 2. public
+It contains all public assets like favicon and images.
+
+### 3. src
+It is whats the main part . We write all our code here . 
+Inside src we have a bit more . Here is how it looks .
+<!-- // Todo a lot  -->
+![alt text](image-8.png) 
+
+Lets demystify this one by one too.
+
+But first lets know what .jsx means.
+
+#### A. Understanding jsx
+
+
+#### 1. main.jsx
+// Explaination
+```jsx
+import { StrictMode } from 'react' // Using strict react to reduce error
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+) // Adding elements in root with help of react
+
+```
+
+#### 2. index.css
+```css
+ /* Here is where all styling goes  */
+```
+
+#### 3. App.jsx
+
+There is a more amount of code using some react features but for now this is how a App.jsx page should be.
+
+```jsx
+import './App.css'
+
+function App() {
+
+  return (
+    <>
+      <div>
+        <p>My app</p>
+      </div>
+    </>
+  )
+}
+
+export default App
+
+```
+
+#### 4. App.css
+```css
+/* Another css page */
+```
+
+#### 5. assets
+---
+
+### 4. .gitignore
+It has a instruction on all the files git has to ignore.
+
+### 5. index.html
+It contains a html file with a root element . Similar to how h1 was created inside root using js previously here , every code we write will be inside this root div.
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+```
+
+### 6. package-lock.json
+
+### 7. package.json
+
+### 8. README.md
+This contains the documentation and summary of what the app is all about . Well , you are reading one right now.
+
+### 9. vite.config.js
+
+## CRA Folder Structure
