@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "_comment":"Just for fun I changed dev to veryfast here so now i can say npm run veryfast to start app.",
+    "veryfast": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

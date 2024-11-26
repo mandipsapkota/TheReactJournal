@@ -286,3 +286,65 @@ This contains the documentation and summary of what the app is all about . Well 
 ### 9. vite.config.js
 
 ## CRA Folder Structure
+
+# React and VSCode setup
+
+For easier react experience , these extensins help a lot.
+
+# React a bit theory part.
+
+When using strictmode we can see code being executed twice.
+
+## Jsx
+Jsx means the combination of javascript and react.
+
+# Take a look at this code 
+
+```jsx
+import './App.css'
+
+function App() {
+
+  let name = "Mandip";
+
+  const click = ()=>{
+    console.log(name) ;
+    name = "Mandip 2";
+    console.log(name) ;
+  }
+
+  return (
+    <>
+      <div>
+        <p>{name} is cool.</p>
+        <button onClick={click}>Click</button>
+      </div>
+    </>
+  )
+}
+
+export default App
+
+```
+
+In this code the value of name changes but is not rendered . 
+![alt text](image-9.png)
+
+---
+
+You may think we can use this approach , right ?
+
+But this is problematic.
+
+ UI does updates when you click, but that's because you're directly changing the DOM with `document.querySelector("span").innerHTML = name;`. This skips React's system for updating the UI, which can cause issues later.
+
+Here’s why this is not ideal:
+1. **React Manages the DOM**: React is designed to automatically update the UI when state changes. By manually changing the DOM, you are bypassing this feature.
+2. **Risk of Bugs**: In more complex applications, React might overwrite the manual DOM changes, causing unexpected behavior.
+3. **Best Practice**: In React, it's better to use `useState` to handle changes. This ensures React knows when to re-render and update the UI correctly.
+
+So, while it works now, using `useState` is the proper way to manage state in React. It is one of the hooks in react.
+
+
+
+
