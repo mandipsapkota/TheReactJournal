@@ -334,6 +334,32 @@ In this code the value of name changes but is not rendered .
 
 You may think we can use this approach , right ?
 
+```jsx
+import './App.css'
+
+function App() {
+
+  let name = "Mandip";
+
+  const click = ()=>{
+    name = "Sandip"
+    document.querySelector("span").innerHTML = name;
+  }
+
+  return (
+    <>
+      <div>
+        <p> <span>{name}</span> is cool.</p>
+        <button onClick={click}>Click</button>
+      </div>
+    </>
+  )
+}
+
+export default App
+
+```
+
 But this is problematic.
 
  UI does updates when you click, but that's because you're directly changing the DOM with `document.querySelector("span").innerHTML = name;`. This skips React's system for updating the UI, which can cause issues later.
@@ -345,6 +371,108 @@ Here’s why this is not ideal:
 
 So, while it works now, using `useState` is the proper way to manage state in React. It is one of the hooks in react.
 
+# Hooks in React
+
+Hooks are some special function that allows us to `hook` into react state and features , so that `fuctional components` can have access to state and other react features.
+
+## useState
+If we want to create variables that need to change even in UI , we use useState. For this we need to import useState on top of our file we can use it .
+
+The snippet is 
+```jsx
+// Snippet 
+let [varName , functionName] =  varValue ; 
+
+// Common convention to name a function in useState is setVarName.
+
+// ----------------Example ----------------------------
+
+// Declaring name variable 
+let [name , setName] = useState("Mandip") ; 
+
+// When we need to change name we do it 
+setName("Sandip")
+
+```
+
+How will we properly write previous code . 
+
+``` js
+import { useState } from 'react';
+import './App.css'
+
+function App() {
+
+  let [name , setName] = useState("Mandip");
+
+  const click = ()=>{
+    setName("Sandip")
+  }
+  return (
+    <>
+      <div>
+        <p> <span>{name}</span> is cool.</p>
+        <button onClick={click}>Change</button>
+      </div>
+    </>
+  )
+}
+
+export default App
+```
+
+---
+
+**NOTE** : Now you can do Project 1 . [Here](#projects)
+
+
+Make sure you try to do it on your own first . Here you will learn a new concept but do on your own first.
 
 
 
+---
+---
+
+
+
+
+# Implementing Styling
+
+## 1. Using vanilla css
+
+
+
+
+
+<!-- # Projects
+
+## Project 1  - Counter to increase and decrease value
+``` jsx
+import { useState } from 'react';
+import './App.css'
+
+function App() {
+
+  let [name , setName] = useState("Mandip");
+
+  const click = ()=>{
+    setName("Sandip")
+  }
+  return (
+    <>
+      <div>
+        <p> <span>{name}</span> is cool.</p>
+        <button onClick={click}>Change</button>
+      </div>
+    </>
+  )
+}
+
+export default App
+```
+
+
+
+
+
+ -->

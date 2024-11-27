@@ -1,19 +1,18 @@
+import { useState } from 'react';
 import './App.css'
 
 function App() {
 
-  let name = "Mandip";
-
-  const click = ()=>{
-    name = "Sandip"
-    document.querySelector("span").innerHTML = name;
-  }
+  const [num , setNum] = useState(0);
 
   return (
     <>
       <div>
-        <p> <span>{name}</span> is cool.</p>
-        <button onClick={click}>Click</button>
+        <p> {num}</p>
+        <button onClick={()=>{setNum(num+1)}}>Increase</button>
+        <br />
+        <br />
+        <button onClick={()=>{setNum(num-1)}}>Decrease</button>
       </div>
     </>
   )
